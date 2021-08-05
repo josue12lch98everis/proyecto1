@@ -18,7 +18,7 @@ public class Client {
 	@Id
 	private String id;
 	
-	private String nombre;
-	private String ruc;
+	private String name;
+	private Type type;
 	private Date createAt;
 }

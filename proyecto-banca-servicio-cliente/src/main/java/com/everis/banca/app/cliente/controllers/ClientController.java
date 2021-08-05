@@ -1,5 +1,7 @@
 package com.everis.banca.app.cliente.controllers;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +29,6 @@ public class ClientController {
 	public Flux<Client> getAllClient() {
 		
 		Flux<Client> clients = clientDao.findAll().map(client -> {
-			client.setNombre(client.getNombre().toUpperCase());
 			return client;
 		});
 		return clients;
@@ -36,6 +37,7 @@ public class ClientController {
 	@PostMapping()
 	public Mono<Client> saveClient(@RequestBody Client client) {
 		try {
+			client.setCreateAt(new Date());
 			Mono<Client> save = clientDao.save(client);
 			log.info("Se ingresó correctamente");
 			return save;
