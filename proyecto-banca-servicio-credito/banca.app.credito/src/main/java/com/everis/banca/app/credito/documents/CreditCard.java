@@ -22,6 +22,7 @@ public class CreditCard {
 	private String expirationDate;
 	private String cvv;
 	private String creditAccountId;
+	private String clientId;
 	private Date createAt;
 	
 }

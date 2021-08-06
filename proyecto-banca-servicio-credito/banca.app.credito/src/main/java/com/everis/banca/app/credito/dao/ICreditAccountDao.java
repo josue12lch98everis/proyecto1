@@ -6,4 +6,5 @@ import com.everis.banca.app.credito.documents.CreditAccount;
 
 public interface ICreditAccountDao extends ReactiveMongoRepository<CreditAccount,String> {
 
+
 }
