@@ -15,12 +15,12 @@ import lombok.AllArgsConstructor;
 @Getter
 @Setter
 @AllArgsConstructor
-public class CurrentAccount {
+public class FixedTermAccount {
 	
 	@Id
 	private String id;
 	private double amountInAccount;
-	private String clientId;
+	private int clientId;
 	private double  costOfMaintenance;
 	
 	private String type;

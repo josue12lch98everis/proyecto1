@@ -61,7 +61,7 @@ public class FixedTermAccountController {
 			try {
 				fixedTermAccount.setCreateAt(new Date());
 				Mono<FixedTermAccount> save = fixedTermAccountDao.save(fixedTermAccount);
-				log.info("Se ingresó correctamente");
+				log.info("Se actualizó correctamente correctamente");
 				return save;
 			} catch (Exception e) {
 				log.error("Error: " + e);
@@ -69,7 +69,13 @@ public class FixedTermAccountController {
 				}}
 		@DeleteMapping()
 		public Mono<FixedTermAccount> deleteFixedTermAccount1(@RequestParam(name = "id", required = true) String id) {
-			fixedTermAccountDao.findById(id).map
+			try { 
+			fixedTermAccountDao.deleteById(id); 
+			log.info("Se borró correctamente");
+			}
+			catch (IllegalArgumentException  e) {
+				log.error("Error: " + e);
+			}
 			return null;
 		}
 	
