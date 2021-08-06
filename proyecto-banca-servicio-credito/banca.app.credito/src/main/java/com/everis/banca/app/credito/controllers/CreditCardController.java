@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.everis.banca.app.credito.dao.ICreditCardDao;
 import com.everis.banca.app.credito.documents.CreditCard;
+import com.everis.banca.app.credito.microservices.interfaces.IClientRestService;
+import com.everis.banca.app.credito.models.ClientModel;
 import com.everis.banca.app.credito.services.interfaces.ICreditCardService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +29,9 @@ public class CreditCardController {
 
 	@Autowired
 	private ICreditCardService creditCardDao;
+
+	@Autowired(required = true)
+	private IClientRestService clientRestService;
 	
 	@GetMapping()
 	public ResponseEntity<Flux<CreditCard>> getAllCreditCard() {
@@ -37,8 +42,20 @@ public class CreditCardController {
 	@PostMapping()
 	public ResponseEntity<Mono<CreditCard>> saveCreditCard(@RequestBody CreditCard creditCard) {
 		try {
+			
 			creditCard.setCreateAt(new Date());
+			Mono<ClientModel> client = clientRestService.findById(creditCard.getClientId());
+			
+			client.subscribe(c ->  {
+				log.info( "Cliente: " +  c.getName());
+				
+				
+			});
+			
 			Mono<CreditCard> save = creditCardDao.createCreditCard(creditCard);
+			
+			
+
 			log.info("Se ingresó correctamente");
 			return ResponseEntity.status(HttpStatus.CREATED).body(save);
 			

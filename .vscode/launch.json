@@ -1,0 +1,84 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProyectoBancaServicioEurekaServerApplication<proyecto-banca-servicio-eureka-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.eureka.ProyectoBancaServicioEurekaServerApplication",
+            "projectName": "proyecto-banca-servicio-eureka-server",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ProyectoBancaServicioClienteApplication<proyecto-banca-servicio-cliente>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.cliente.ProyectoBancaServicioClienteApplication",
+            "projectName": "proyecto-banca-servicio-cliente",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<banca.app.drcuentas>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.drcuentas.Application",
+            "projectName": "banca.app.drcuentas",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<banca.app.drcredito>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.drcredito.Application",
+            "projectName": "banca.app.drcredito",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<banca.app.cuenta-plazofijo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.cuentaplazofijo.Application",
+            "projectName": "banca.app.cuenta-plazofijo",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<banca.app.cuenta-corriente>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.cuentacorriente.Application",
+            "projectName": "banca.app.cuenta-corriente",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<banca.app.cuenta-ahorro>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.cuentaahorro.Application",
+            "projectName": "banca.app.cuenta-ahorro",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<banca.app.credito>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.credito.Application",
+            "projectName": "banca.app.credito",
+            "args": ""
+        }
+    ]
+}

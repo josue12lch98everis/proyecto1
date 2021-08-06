@@ -10,4 +10,6 @@ public interface ICreditCardService {
 	Flux<CreditCard> getAllCreditCard();
 	
 	Mono<CreditCard> createCreditCard(CreditCard creditCard);
+
+	Flux<CreditCard> findByClientId(String clientId);
 }

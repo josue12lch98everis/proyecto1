@@ -31,4 +31,10 @@ public class CreditCardImpl implements ICreditCardService {
 		return creditCardDao.save(creditCard);
 	}
 
+	@Override
+	public Flux<CreditCard> findByClientId(String clientId) {
+		Flux<CreditCard> lcreditCard = creditCardDao.findByClientId(clientId);
+		return lcreditCard;
+	}
+
 }
