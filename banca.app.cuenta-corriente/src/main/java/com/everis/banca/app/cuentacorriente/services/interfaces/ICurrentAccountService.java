@@ -18,6 +18,8 @@ public interface ICurrentAccountService {
 	Flux<CurrentAccount> findByClientId(String clientId);
 
 	Mono<CurrentAccount> save(CurrentAccount currentAccount);
+	
+	Mono<Void> deleteById(String  idCurrentAccount);
 
 
 	

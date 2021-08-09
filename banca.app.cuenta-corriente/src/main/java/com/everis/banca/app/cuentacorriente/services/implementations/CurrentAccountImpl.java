@@ -50,5 +50,10 @@ public class CurrentAccountImpl implements ICurrentAccountService {
 		return currentAccountDao.save(currentAccount);
 	}
 
+	@Override
+	public Mono<Void> deleteById(String idCurrentAccount) {
+		return currentAccountDao.deleteById(idCurrentAccount);
+	}
+
 	
 }

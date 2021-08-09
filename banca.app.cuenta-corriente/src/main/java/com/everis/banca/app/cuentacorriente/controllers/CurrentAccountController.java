@@ -3,6 +3,8 @@ package com.everis.banca.app.cuentacorriente.controllers;
 
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,15 +51,15 @@ public class CurrentAccountController {
 				currentAccount.setCreateAt(new Date());
 				Mono<CurrentAccount> save = currentAccountService.save(currentAccount);
 				log.info("Se ingresó correctamente");
-				return save ;
+				return save;
 			} catch (Exception e) {
 				log.error("Error: " + e);
 				return null;
 			}}
 			@PutMapping()
-			public ResponseEntity<Mono<CurrentAccount>> updateCurrentAccount(@RequestBody CurrentAccount currentAccount) {
+			public Mono<ResponseEntity<Mono<CurrentAccount>>> updateCurrentAccount(@RequestBody CurrentAccount currentAccount) {
 				try {
-					Mono<CurrentAccount> updatedCurrentAccount= currentAccountService.findById(currentAccount.getId()).map(c ->{ 
+					Mono<CurrentAccount> updatedCurrentAccount= currentAccountService.findById(currentAccount.getId()).flatMap(c ->{ 
 						
 						
 						currentAccount.setModifiedAt(new Date ());
@@ -67,10 +69,18 @@ public class CurrentAccountController {
 							.cast(CurrentAccount.class) ;
 					if ( updatedCurrentAccount ==null) {
 						log.info("No se econtró el registro de la cuenta corriente");
-						return ResponseEntity.ok(null);
+
+						Map<String, Object> params = new HashMap<String, Object>();
+						params.put("mensaje", "No existe la cuenta");
+						
+						return Mono.just(new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
 						}else {
 							log.info("Se modificó correctamente");
-							return ResponseEntity.status(HttpStatus.ACCEPTED).body(updatedCurrentAccount);
+							Map<String, Object> params = new HashMap<String, Object>();
+							
+							params.put("mensaje", "No existe la cuenta");
+							
+							return Mono.just(new ResponseEntity<>(updatedCurrentAccount, HttpStatus.ACCEPTED));
 								}
 					
 					
@@ -78,11 +88,18 @@ public class CurrentAccountController {
 				}
 				 catch (Exception e) {
 					log.error("Error: " + e);
-					return ResponseEntity.internalServerError().body(null);
+					return Mono.just(new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR));
 				}
 				
 				
 				}
+			
+			@DeleteMapping()
+			public Mono<ResponseEntity<Void>> deleteCurrentAccount(@RequestParam(name="idCurrentAccount",required = true) String idCurrentAccount) {
+				currentAccountService.deleteById(idCurrentAccount) ;
+				return null;
+			}
+			
 		}
 	
 

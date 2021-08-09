@@ -113,8 +113,7 @@ public class CreditCardImpl implements ICreditCardService {
 					params.put("mensaje", "El cliente puede generar una tarjeta de crédito");
 					params.put("error", null);
 					return Mono.just(params);
-				})
-		;
+				});
 	}
 
 	@Override
