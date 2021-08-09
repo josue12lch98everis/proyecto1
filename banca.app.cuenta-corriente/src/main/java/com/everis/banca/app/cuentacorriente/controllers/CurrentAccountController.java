@@ -96,8 +96,10 @@ public class CurrentAccountController {
 			
 			@DeleteMapping()
 			public Mono<ResponseEntity<Void>> deleteCurrentAccount(@RequestParam(name="idCurrentAccount",required = true) String idCurrentAccount) {
-				currentAccountService.deleteById(idCurrentAccount) ;
-				return null;
+				
+				return currentAccountService.findById(idCurrentAccount).flatMap(c ->{ 
+					return currentAccountService.deleteById(idCurrentAccount).then(Mono.just(new ResponseEntity<Void>(HttpStatus.NO_CONTENT))) ;	
+				}).defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
 			}
 			
 		}
