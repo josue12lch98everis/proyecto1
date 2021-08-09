@@ -79,6 +79,16 @@
             "mainClass": "com.everis.banca.app.credito.Application",
             "projectName": "banca.app.credito",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<banca.app.config-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.config.Application",
+            "projectName": "banca.app.config-server",
+            "args": ""
         }
     ]
 }

@@ -2,9 +2,14 @@ package com.everis.banca.app.credito.microservices.interfaces;
 
 import com.everis.banca.app.credito.models.ClientModel;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface IClientRestService {
 
-    Mono<ClientModel> findById(String id);
+    Flux<ClientModel> findAll();
+
+	Mono<ClientModel> findById(String id);
+
+    
 }
