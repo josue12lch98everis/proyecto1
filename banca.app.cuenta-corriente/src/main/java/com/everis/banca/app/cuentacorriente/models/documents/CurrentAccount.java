@@ -2,6 +2,7 @@ package com.everis.banca.app.cuentacorriente.models.documents;
 
 
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
@@ -15,7 +16,7 @@ import lombok.AllArgsConstructor;
 @Getter
 @Setter
 @AllArgsConstructor
-public class CurrentAccount {
+public class CurrentAccount implements Serializable  {
 	
 	@Id
 	private String id;
