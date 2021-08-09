@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.everis.banca.app.cuentacorriente.dao.FixedTermAccountDao;
+import com.everis.banca.app.cuentacorriente.dao.FixedTermDao;
 import com.everis.banca.app.cuentacorriente.models.documents.FixedTermAccount;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,12 +25,12 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/FixedTermAccount")
 @Slf4j
-public class FixedTermAccountController {
+public class FixedTermController {
 
 
 
 		@Autowired
-		private FixedTermAccountDao fixedTermAccountDao;
+		private FixedTermDao fixedTermAccountDao;
 		
 		@GetMapping()
 		public Flux<Object> getAllFixedTermAccount() {
