@@ -89,6 +89,26 @@
             "mainClass": "com.everis.banca.app.config.Application",
             "projectName": "banca.app.config-server",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<banca.app.config-servers>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.config.Application",
+            "projectName": "banca.app.config-servers",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<proyecto-banca-servicio-cuenta-plazofijo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.everis.banca.app.cuentaplazofijo.Application",
+            "projectName": "proyecto-banca-servicio-cuenta-plazofijo",
+            "args": ""
         }
     ]
 }
